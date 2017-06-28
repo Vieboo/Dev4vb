@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#5abefc</color>
+    <color name="colorPrimaryDark">#2ba8f8</color>
+
+    <color name="text_blue">#2ca7f7</color>
+    <color name="text_white">#ffffff</color>
+
+    <color name="refresh_text_color_gray">#999999</color>
+
+
+    <color name="image_url_empty">#FFFFFF</color>
+    <color name="image_url_fail">#FF0000</color>
+    <color name="image_url_loading">#CCCCCC</color>
+
+</resources>

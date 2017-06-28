@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dev4vb.iml" filepath="$PROJECT_DIR$/Dev4vb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple/simple.iml" filepath="$PROJECT_DIR$/simple/simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vb_dev-lib/vb_dev-lib.iml" filepath="$PROJECT_DIR$/vb_dev-lib/vb_dev-lib.iml" />
+    </modules>
+  </component>
+</project>

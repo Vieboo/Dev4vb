@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titlebarHeight_normal">46dp</dimen>
+    <dimen name="titlebarHeight">46dp</dimen>
+    <dimen name="statusbarHeight">0dp</dimen>
+
+    <dimen name="font_size_sp_17">17sp</dimen>
+</resources>
