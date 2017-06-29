@@ -1,4 +1,4 @@
-package com.vb.imageloader;
+package vieboo.imageloader;
 
 
 import android.graphics.Bitmap;

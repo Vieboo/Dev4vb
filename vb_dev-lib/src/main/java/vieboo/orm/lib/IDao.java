@@ -1,4 +1,4 @@
-package com.vb.orm.lib;
+package vieboo.orm.lib;
 
 import java.util.Collection;
 import java.util.List;

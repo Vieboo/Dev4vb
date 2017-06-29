@@ -1,4 +1,4 @@
-package com.vb.imageloader;
+package vieboo.imageloader;
 
 import android.app.ActivityManager;
 import android.content.Context;

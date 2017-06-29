@@ -1,4 +1,4 @@
-package com.vb.photoview;
+package vieboo.photoview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vb.dev.lib.R;
-import com.vb.imageloader.ImageLoaderHelper;
+import vieboo.imageloader.ImageLoaderHelper;
 
 import uk.co.senab.photoview.PhotoView;
 

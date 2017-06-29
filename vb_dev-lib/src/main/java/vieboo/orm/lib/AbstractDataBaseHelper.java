@@ -1,4 +1,4 @@
-package com.vb.orm.lib;
+package vieboo.orm.lib;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

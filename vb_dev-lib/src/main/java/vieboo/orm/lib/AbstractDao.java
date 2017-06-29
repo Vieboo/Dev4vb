@@ -1,4 +1,4 @@
-package com.vb.orm.lib;
+package vieboo.orm.lib;
 
 import android.database.SQLException;
 import android.util.Log;
