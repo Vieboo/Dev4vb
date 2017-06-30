@@ -3,11 +3,20 @@
 
     <color name="colorPrimary">#5abefc</color>
     <color name="colorPrimaryDark">#2ba8f8</color>
+    <color name="colorAccent">#2ba8f8</color>
+
+    <color name="bg_white">@android:color/white</color>
+    <color name="black">#000000</color>
 
     <color name="text_blue">#2ca7f7</color>
     <color name="text_white">#ffffff</color>
+    <color name="text_light_gray">#999999</color>
+    <color name="text_gray">#666666</color>
+    <color name="text_black">#333333</color>
 
     <color name="refresh_text_color_gray">#999999</color>
+
+    <color name="line_gray">#e5e5e5</color>
 
 
     <color name="image_url_empty">#FFFFFF</color>

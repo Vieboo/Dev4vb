@@ -4,5 +4,21 @@
     <dimen name="titlebarHeight">46dp</dimen>
     <dimen name="statusbarHeight">0dp</dimen>
 
+
+    <dimen name="font_size_sp_9">9sp</dimen>
+    <dimen name="font_size_sp_10">10sp</dimen>
+    <dimen name="font_size_sp_11">11sp</dimen>
+    <dimen name="font_size_sp_12">12sp</dimen>
+    <dimen name="font_size_sp_13">13sp</dimen>
+    <dimen name="font_size_sp_14">14sp</dimen>
+    <dimen name="font_size_sp_15">15sp</dimen>
+    <dimen name="font_size_sp_16">16sp</dimen>
     <dimen name="font_size_sp_17">17sp</dimen>
+    <dimen name="font_size_sp_18">18sp</dimen>
+    <dimen name="font_size_sp_19">19sp</dimen>
+    <dimen name="font_size_sp_20">20sp</dimen>
+    <dimen name="font_size_sp_22">22sp</dimen>
+    <dimen name="font_size_sp_24">24sp</dimen>
+
+    <dimen name="btn_radius">5dp</dimen>
 </resources>
