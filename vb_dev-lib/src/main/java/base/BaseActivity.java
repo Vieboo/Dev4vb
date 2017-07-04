@@ -57,11 +57,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
     protected abstract void initView(Bundle savedInstanceState);
 
     /**
-     * 初始化标题栏
-     */
-    protected abstract void initTitleBar();
-
-    /**
      * 初始化事件
      */
     protected abstract void initEvent();
@@ -74,7 +69,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
         initData(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        initTitleBar();
         initView(savedInstanceState);
         initEvent();
 
@@ -138,31 +132,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
         overridePendingTransition(R.anim.slide_out, R.anim.slide_out_to_bottom);
     }
 
-//    /**
-//     * 软键盘是否隐藏
-//     */
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        if (ev.getAction() == MotionEvent.ACTION_UP) {
-//            // 获得当前得到焦点的View，一般情况下就是EditText（特殊情况就是轨迹求或者实体案件会移动焦点）
-//            View v = getCurrentFocus();
-//            if (isShouldHideInput(v, ev)) {
-//                ((InputMethodManager) this
-//                        .getSystemService(INPUT_METHOD_SERVICE))
-//                        .hideSoftInputFromWindow(this.getCurrentFocus()
-//                                        .getWindowToken(),
-//                                InputMethodManager.HIDE_NOT_ALWAYS);
-//
-//                // return false;
-//            }
-//        }
-//        return super.dispatchTouchEvent(ev);
-//    }
-
-    public boolean dispatchTouchEvent2(MotionEvent ev) {
-        return super.dispatchTouchEvent(ev);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -178,36 +147,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
     @Override
     protected void onDestroy() {
         super.onStop();
-        removeNightHover();
+//        removeNightHover();
     }
 
-    /**
-     * isShouldHideInput
-     * 根据EditText所在坐标和用户点击的坐标相对比，来判断是否隐藏键盘，因为当用户点击EditText时没必要隐藏
-     *
-     * @param v
-     * @param event
-     * @return boolean
-     * @throws
-     * @since 1.0.0
-     */
-    public boolean isShouldHideInput(View v, MotionEvent event) {
-        if (v != null && (v instanceof EditText)) {
-            int[] l = { 0, 0 };
-            v.getLocationInWindow(l);
-            int left = l[0], top = l[1], bottom = top + v.getHeight(), right = left
-                    + v.getWidth();
-            if (event.getX() > left && event.getX() < right
-                    && event.getY() > top && event.getY() < bottom) {
-                // 点击EditText的事件，忽略它。
-                return false;
-            } else {
-                return true;
-            }
-        }
-        // 如果焦点不是EditText则忽略，这个发生在视图刚绘制完，第一个焦点不在EditView上，和用户用轨迹球选择其他的焦点
-        return false;
-    }
     /***
      *
      * *****网络层回调******
@@ -239,7 +181,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
         if(e instanceof SocketTimeoutException) {
             msg = "连接超时，请检查您的网络";
         }
-        Toast.makeText(App.getInstance(), msg, Toast.LENGTH_SHORT).show();
+        BaseApp.getInstance().showToast(msg);
     }
 
     @Override
@@ -251,13 +193,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
     public abstract void onSuccessJson(BaseJson response, int taskId);
 
 
-    @Override
-    public void onClick(View v) {
-
-    }
-
     protected void showToast(String msg) {
-        Toast.makeText(App.getInstance(), msg, Toast.LENGTH_SHORT).show();
+        BaseApp.getInstance().showToast(msg);
     }
 
     @Override
@@ -266,12 +203,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
             return true;
         }
         if(!finishFlag) return super.dispatchTouchEvent(ev);
-//        if (this instanceof MainActivity) {
-//            return super.dispatchTouchEvent(ev);
-//        }
         // 过滤右划关闭监听时间
         boolean isGesture = false;
-        // if (GlobalVars.IS_ENABLE_GESTURE) {
         if (slideDirection == null) {
             slideDirection = SlideDirection.RIGHT;
         }
@@ -281,7 +214,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
             detector = new GestureDetector(this, gestureListener);
         }
         isGesture = detector.onTouchEvent(ev);
-        // }
         if (isGesture) {
             return isGesture;
         } else {
@@ -294,34 +226,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IDataLoa
         }
     }
 
-    protected void fullscreen(boolean enable) {
-        if (enable) { //显示状态栏
-            WindowManager.LayoutParams lp = getWindow().getAttributes();
-            lp.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
-            getWindow().setAttributes(lp);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        } else { //隐藏状态栏
-            WindowManager.LayoutParams lp = getWindow().getAttributes();
-            lp.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            getWindow().setAttributes(lp);
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
-    }
 
     protected String getTime() {
         return new SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(new Date());
-    }
-
-    //设置屏幕亮度
-    public void setScreenLight(int progress) {
-        if (progress < 1) {
-            progress = 1;
-        } else if (progress > 255) {
-            progress = 255;
-        }
-        final WindowManager.LayoutParams attrs = getWindow().getAttributes();
-        attrs.screenBrightness = progress / 255f;
-        getWindow().setAttributes(attrs);
     }
 
 
